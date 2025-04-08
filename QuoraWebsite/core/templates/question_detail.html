@@ -1,0 +1,18 @@
+<h2>Question: {{ question.content }}</h2>
+
+<h3>Answers</h3>
+{% for answer in answers %}
+  <p>{{ answer.content }} by {{ answer.user.username }}
+     - <a href="{% url 'like_answer' answer.id %}">Like</a>
+     ({{ answer.like_set.count }})
+  </p>
+{% endfor %}
+
+<h3>Your Answer</h3>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Post Answer</button>
+</form>
+
+<a href="{% url 'home' %}">Back to Home</a>

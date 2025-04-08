@@ -1,0 +1,12 @@
+myenv/
+__pycache__/
+*.py[cod]
+db.sqlite3
+media/
+staticfiles/
+.vscode/
+.idea/
+.env
+**/migrations/
+**/__pycache__/
+    
