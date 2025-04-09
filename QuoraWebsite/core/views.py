@@ -10,8 +10,9 @@ from django.contrib.auth.models import User
 def register_view(request):
     if request.method == 'POST':
         form = CustomRegisterForm(request.POST)
-        print(form,"DDDDDDDDDDDDDDDD")
+    
         if form.is_valid():
+            print(form.cleaned_data,"NEW_DATAAAAA")
             form.save()
             return redirect('login')
         else:
@@ -34,7 +35,7 @@ def login_view(request):
             return redirect('home')
         else:
             print(user,"BBBBBBBB")
-            messages.error(request, 'Invalid username or password.')  # 👈 Add this
+            messages.error(request, 'Invalid username or password.')  
     return render(request, 'login.html')
 
 # Logout View
